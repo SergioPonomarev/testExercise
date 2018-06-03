@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!-->
+<html class="no-js">
+<!--<![endif]-->
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Test Exercise</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB"
+        crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp"
+        crossorigin="anonymous">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+    <!--[if lt IE 7]>
+            <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="#">upgrade your browser</a> to improve your experience.</p>
+        <![endif]-->
+
+    <header class="container">
+        <div class="row mt-5">
+            <div class="col-10">
+                <form action="" class="form-inline">
+                    <input type="text" class="form-control w-75" placeholder="Search" aria-label="Search">
+                    <button type="button" class="btn btn-primary">Search</button>
+                </form>
+            </div>
+            <div class="col-2 d-flex justify-content-end">
+                <button type="button" class="btn btn-success" data-target="#addUpdate" data-toggle="modal" data-action="Add">Add new</button>
+            </div>
+        </div>
+    </header>
+    <section class="container">
+        <table class="table table-bordered mt-5">
+            <thead>
+                <tr class="text-center">
+                    <th class="w-50">Name
+                        <i class="fas fa-caret-down position-relative"></i>
+                        <i class="fas fa-caret-up position-relative" hidden></i>
+                    </th>
+                    <th class="w-25">Price
+                        <i class="fas fa-caret-down position-relative"></i>
+                        <i class="fas fa-caret-up position-relative" hidden></i>
+                    </th>
+                    <th class="w-25">Actions</th>
+                </tr>
+            </thead>
+            <tbody id="productList">
+                <tr>
+                    <td class="position-relative">
+                        Product 1<span class="position-absolute">1</span>
+                    </td>
+                    <td class="text-center">$12,352.25</td>
+                    <td class="text-center">
+                        <button type="button" class="update btn btn-warning btn-sm" data-toggle="modal" data-target="#addUpdate" data-action="Update">Update</button>
+                        <button type="button" class="btn btn-danger btn-sm ml-xl-5 ml-lg-3 ml-md-1" data-toggle="modal"
+                            data-target="#delete">Delete</button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </section>
+
+    <div class="modal fade" id="addUpdate" tabindex="-1" role="dialog" aria-labelledby="addUpdate" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content mx-3">
+                <div class="modal-header">
+                    <h5 class="modal-title">Add new product</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <form class="needs-validation" novalidate>
+                        <div class="form-row">
+                            <div class="col">
+                                <label for="validationProductName">Name:</label>
+                                <input type="text" class="form-control" id="validationProductName" placeholder="Product name" pattern="[A-Za-zА-Яа-яЁё]{1,15}"
+                                    required>
+                                <div class="invalid-feedback">
+                                    Please enter product name. Name can not exceed 15 characters.
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="col mb-3">
+                                <label for="validationProductCount">Count:</label>
+                                <input type="text" class="form-control" id="validationProductCount" placeholder="Count" pattern="^[ 0-9]+$" required>
+                                <div class="invalid-feedback">
+                                    Please enter product count. The value must be an integer.
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="col mb-3">
+                                <label for="validationProductPrice">Price:</label>
+                                <input type="text" class="form-control" id="validationProductPrice" placeholder="Price" pattern="\d+(\.\d{1,2})?" required>
+                                <div class="invalid-feedback">
+                                    Please enter product price. Must be a number in format 123 or 123.45
+                                </div>
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                            <button class="btn btn-success" type="submit">Add</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="delete" tabindex="-1" role="dialog" aria-labelledby="delete" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Product deleting</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    Are you sure you want to delete selected product?
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+                    <button type="submit" class="btn btn-primary">Delete</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+    <script src="js/jquery.maskMoney.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js" integrity="sha384-smHYKdLADwkXOn1EmN1qk/HfnUcbVRZyYmZ4qpPea6sjB/pTJ0euyQp0Mk8ck+5T"
+        crossorigin="anonymous"></script>
+    <script src="js/script.js"></script>
+</body>
+
+</html>
