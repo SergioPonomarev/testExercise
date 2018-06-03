@@ -79,7 +79,7 @@
                 </div>
                 <div class="modal-body">
                     <form class="needs-validation" novalidate>
-                        <div class="form-row">
+                        <div class="form-group">
                             <div class="col">
                                 <label for="validationProductName">Name:</label>
                                 <input type="text" class="form-control" id="validationProductName" placeholder="Product name" pattern="[A-Za-zА-Яа-яЁё]{1,15}"
@@ -89,7 +89,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="form-row">
+                        <div class="form-group">
                             <div class="col mb-3">
                                 <label for="validationProductCount">Count:</label>
                                 <input type="text" class="form-control" id="validationProductCount" placeholder="Count" pattern="^[ 0-9]+$" required>
@@ -98,12 +98,12 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="form-row">
+                        <div class="form-group">
                             <div class="col mb-3">
                                 <label for="validationProductPrice">Price:</label>
                                 <input type="text" class="form-control" id="validationProductPrice" placeholder="Price" pattern="\d+(\.\d{1,2})?" required>
                                 <div class="invalid-feedback">
-                                    Please enter product price. Must be a number in format 123 or 123.45
+                                    Please enter product price. Must be a number in format 123.45
                                 </div>
                             </div>
                         </div>
